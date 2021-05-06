@@ -1,12 +1,11 @@
 import { useFormik } from "formik";
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 
 import closeSvg from "../../assets/close.svg";
 import incomeSvg from "../../assets/income.svg";
 import outcomeSvg from "../../assets/outcome.svg";
 import { useTransactions } from "../../contexts/useTransactions";
-import api from "../../services/api";
 import {
   ButtonsTypesTransactionsContainer,
   NewTransactionModalWrapper,

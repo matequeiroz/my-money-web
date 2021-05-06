@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React from 'react';
 import incomeSVG from '../../assets/income.svg'
 import outcomeSVG from '../../assets/outcome.svg'
 import totalSVG from '../../assets/total.svg'
