@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import breakpoints from "./breakpoints";
 
 export default createGlobalStyle`
     :root {
@@ -25,7 +26,7 @@ export default createGlobalStyle`
         @media only screen and (min-width: 992px) {
             font-size: 87.5%;
         }
-        
+
         @media only screen and (min-width: 1382px) {
             font-size: 93.75%;
         }
@@ -66,5 +67,12 @@ export default createGlobalStyle`
         position: relative;
         flex-direction: column;
         border-radius: 0.25rem;
+
+        @media (min-width: ${breakpoints.mobile.portrait}) and (max-width: ${breakpoints.tablet.portrait}) {
+          padding: 1rem;
+          bottom: 0;
+          border-radius: 1rem 1rem 0 0;
+          position: fixed;
+        }
     }
-`
+`;

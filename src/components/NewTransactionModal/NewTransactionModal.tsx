@@ -20,6 +20,7 @@ interface NewTransactionModalProps {
 enum ITypeTransaction {
   income = "income",
   outcome = "outcome",
+  default = ""
 }
 
 interface Transaction {
@@ -35,14 +36,14 @@ export function NewTransactionModal({
 }: NewTransactionModalProps) {
   const { createNewTransaction } = useTransactions();
 
-  const [typeTransaction, setTypeTransaction] = useState("");
+  const [typeTransaction, setTypeTransaction] = useState<ITypeTransaction>(ITypeTransaction.default);
 
   function handleTypeTransaction(type: ITypeTransaction): void {
     setTypeTransaction(type);
   }
 
   function clearDataOfModalNewTransaction() {
-    setTypeTransaction("");
+    setTypeTransaction(ITypeTransaction.default);
   }
 
   function closeModalNewTransaction() {
@@ -62,9 +63,9 @@ export function NewTransactionModal({
   const formik = useFormik<Transaction>({
     initialValues: {
       title: "",
-      value: "",
+      value: 0,
       category: "",
-      type: "",
+      type: ITypeTransaction.income,
     },
     onSubmit: (values: Transaction) => {
       values.type = typeTransaction;
@@ -132,13 +133,13 @@ export function NewTransactionModal({
             onChange={formik.handleChange}
           >
             <option defaultValue="Categoria">Categoria</option>
-            <option value="1">Moradia</option>
-            <option value="2">Assinatura</option>
-            <option value="3">Receita</option>
-            <option value="4">Salário</option>
-            <option value="5">Investimento</option>
-            <option value="6">Estudos</option>
-            <option value="7">Lazer</option>
+            <option value="Moradia">Moradia</option>
+            <option value="Assinatura">Assinatura</option>
+            <option value="Receita">Receita</option>
+            <option value="Salário">Salário</option>
+            <option value="Investimento">Investimento</option>
+            <option value="Estudos">Estudos</option>
+            <option value="Lazer">Lazer</option>
           </select>
           <button type="submit">Cadastrar</button>
         </NewTransactionModalWrapper>
