@@ -17,14 +17,25 @@ export const SummaryWrapper = styled.section`
     color: var(--text-title);
     width: 30%;
 
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
     @media (min-width: ${breakpoints.mobile.portrait}) and (max-width: ${breakpoints.tablet.portrait}) {
       width: 100%;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: translateX(5px);
+      }
       & + div {
         margin-top: 0.8rem;
       }
     }
 
-    &:nth-child(3) {
+    &:nth-child(1) {
       background: var(--green);
       color: var(--shape);
     }

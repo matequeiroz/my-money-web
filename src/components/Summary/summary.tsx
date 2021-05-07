@@ -37,6 +37,17 @@ export function Summary(){
 
     return(
         <SummaryWrapper>
+          <div>
+                <header>
+                    <p>Saldo Atual</p>
+                    <img src={totalSVG} alt="Saldo"/>
+                </header>
+                <strong>{new Intl.NumberFormat("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(summary.balance)}</strong>
+                  <p>Última entrada dia 13 de abril</p>
+            </div>
             <div>
                 <header>
                     <p>Entradas</p>
@@ -46,27 +57,20 @@ export function Summary(){
                     style: "currency",
                     currency: "BRL",
                   }).format(summary.entries)}</strong>
+                  <p>Última saída dia 13 de abril</p>
             </div>
             <div>
                 <header>
                     <p>Saídas</p>
                     <img src={outcomeSVG} alt="Saidas"/>
                 </header>
-                <strong>- {new Intl.NumberFormat("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                  }).format(summary.exits)}</strong>
-            </div>
-            <div>
-                <header>
-                    <p>Saldo Atual</p>
-                    <img src={totalSVG} alt="Saldo"/>
-                </header>
                 <strong>{new Intl.NumberFormat("pt-br", {
                     style: "currency",
                     currency: "BRL",
-                  }).format(summary.balance)}</strong>
+                  }).format(summary.exits)}</strong>
+                  <p>01 à 16 de abril</p>
             </div>
+
         </SummaryWrapper>
     )
 }
